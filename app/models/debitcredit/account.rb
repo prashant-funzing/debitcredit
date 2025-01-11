@@ -38,7 +38,7 @@ module Debitcredit
         raise BadKind if kind && by_kind(kind) != account.class
 
         if overdraft != account.overdraft_enabled?
-          account.update_attributes! overdraft_enabled: overdraft
+          account.update! overdraft_enabled: overdraft
         end
 
         return account

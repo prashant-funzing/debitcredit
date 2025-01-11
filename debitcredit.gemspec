@@ -16,9 +16,13 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 5.1.4"
-  s.add_dependency "docile"
+  # Update the Ruby version requirement to Ruby 3.2.6
+  s.required_ruby_version = '>= 3.2.6'
 
-  s.add_development_dependency "sqlite3"
-  s.add_development_dependency "rspec-rails", "~> 3.7.2"
+  s.add_dependency "rails", "~> 6.1.7.10"
+  s.add_dependency "docile"
+  s.add_dependency 'bigdecimal', '~> 3.1'
+
+  s.add_development_dependency "sqlite3", "~> 1.4"
+  s.add_development_dependency "rspec-rails", "~> 4.0"
 end
