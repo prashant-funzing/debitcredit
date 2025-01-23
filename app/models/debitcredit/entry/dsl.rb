@@ -10,6 +10,10 @@ class Debitcredit::Entry::Dsl
     @entry.kind = kind
   end
 
+  def parent(parent_entry)
+    @entry.parent_entry_id = parent_entry.try(:id)
+  end
+
   def description(desc)
     @entry.description = desc
   end
