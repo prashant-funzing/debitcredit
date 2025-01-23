@@ -51,6 +51,9 @@ module Debitcredit
 
     def lock_and_update_balances
       items.sort_by(&:account_id).each do |item|
+        account = item.account
+        Rails.logger.log "$$$ LOCK Account : #{account.inspect} CHANGES: #{account.changes}"
+        account&.reload if account.changed? # Discard unpersisted changes
         item.account.lock!.update_balance!(item, !ignore_overdraft)
       end
     end
